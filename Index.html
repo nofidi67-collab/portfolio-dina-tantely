@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dina Bee | Intégrateur Web Freelance</title>
+    <meta name="description" content="Portfolio de Dina, intégrateur web freelance. Code pixel-perfect, design premium, sites accessibles en HTML/CSS/JS, WordPress, WooCommerce et PrestaShop.">
+    <meta name="theme-color" content="#0b0e14">
+    <link rel="canonical" href="https://votre-domaine.fr/">
+
+    <!-- Open Graph / partage social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dina Bee | Intégrateur Web Freelance">
+    <meta property="og:description" content="Code pixel-perfect, design premium et accessible. Découvrez mes réalisations.">
+    <meta property="og:image" content="images/og-cover.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts: Space Grotesk (Titres) & Inter (Texte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome pour les icônes tech -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Lueurs d'arrière-plan (Glow Effect) -->
+    <div class="glow-bg glow-cyan" aria-hidden="true"></div>
+    <div class="glow-bg glow-purple" aria-hidden="true"></div>
+
+    <!-- Curseur personnalisé (désactivé sur tactile/reduced motion via CSS/JS) -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+
+    <!-- Header / Nav -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#hero" class="logo">
+                <i class="fas fa-hexagon logo-icon" aria-hidden="true"></i>
+                <span class="logo-text">Dina<br><span class="logo-accent">Bee</span></span>
+            </a>
+
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">À propos</a></li>
+                    <li><a href="#skills" class="nav-link">Compétences</a></li>
+                    <li><a href="#portfolio" class="nav-link">Projets</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Activer le mode clair" aria-pressed="false" type="button">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                </button>
+                <a href="#contact" class="btn btn-outline btn-sm">Me recruter</a>
+                <button id="menu-toggle" class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav" type="button">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1. Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge"><i class="fas fa-circle-notch fa-spin" aria-hidden="true"></i> Disponible pour vos missions</div>
+                    <h1 class="hero-title">Je traduis vos designs en code <span>pixel-perfect</span>.</h1>
+                    <p class="hero-description">Intégrateur Web spécialisé dans la création d'interfaces fluides, ultra-rapides, sémantiques, accessibles et fonctionnelles.</p>
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="btn btn-primary">Voir mes projets <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <a href="https://drive.google.com/uc?export=download&id=151rOmtHqCSqEM3LnZqGqjQHDhJ8L-BMl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <i class="fas fa-download" aria-hidden="true"></i> Mon CV
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="avatar-blob">
+                        <img src="images/image-de-dina.jpg" alt="Portrait de Dina R. - Intégrateur Web" width="420" height="420" loading="eager">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. À propos (Style IDE Code) -->
+        <section id="about" class="about section-padding">
+            <div class="container about-grid">
+                <div>
+                    <h2 class="section-title">À propos de moi</h2>
+                    <p class="text-muted">Passionné par le design d'interface et la rigueur technique, j'interviens comme le pont essentiel entre le designer graphique et l'utilisateur final.</p>
+                    <p class="text-muted" style="margin-top: 1rem;">Mon objectif ? Livrer un code propre, sans compromis sur la fluidité des animations ni sur l'accessibilité universelle (WCAG).</p>
+                </div>
+                <div class="ide-container">
+                    <div class="ide-header">
+                        <div class="ide-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                        <div class="ide-title">aboutMe.js</div>
+                    </div>
+                    <div class="ide-body">
+                        <pre><code><span class="code-keyword">const</span> freelancing = {
+  nom: <span class="code-string">"RAKOTOMAMONJY Dina Tantely"</span>,
+  role: <span class="code-string">"Intégrateur-web"</span>,
+  philosophie: <span class="code-string">"Pixel perfect ou rien"</span>,
+  outilsDeMaquette: [<span class="code-string">"Figma"</span>, <span class="code-string">"VS Code"</span>, <span class="code-string">"Adobe XD"</span>],
+  accessible: <span class="code-boolean">true</span>
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Compétences (Glassmorphism) -->
+        <section id="skills" class="skills section-padding">
+            <div class="container">
+                <h2 class="section-title center">Mes Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-html5 skill-icon" style="color: #e34c26;" aria-hidden="true"></i>
+                        <h3>HTML5 & Sémantique</h3>
+                        <p>Structure propre conforme au SEO technique et aux normes d'accessibilité.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-css3-alt skill-icon" style="color: #264de4;" aria-hidden="true"></i>
+                        <h3>CSS3 & Sass</h3>
+                        <p>Layouts modernes (Grid, Flexbox), architectures BEM et responsive absolu.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-js-square skill-icon" style="color: #f7df1e;" aria-hidden="true"></i>
+                        <h3>JavaScript Vanilla</h3>
+                        <p>Manipulations dynamiques du DOM, gestion d'API et micro-interactions fluides.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-wordpress skill-icon" style="color: #21759b;" aria-hidden="true"></i>
+                        <h3>WordPress & CMS</h3>
+                        <p>Intégration de thèmes sur mesure, configuration d'Elementor et gestion de sites multilingues.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-cart-shopping skill-icon" style="color: #96588a;" aria-hidden="true"></i>
+                        <h3>WooCommerce & Boutiques</h3>
+                        <p>Création de boutiques en ligne fluides, personnalisation de tunnels d'achat (checkout) et optimisation du parcours client.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-shopping-bag skill-icon" style="color: #df0067;" aria-hidden="true"></i>
+                        <h3>Intégration PrestaShop</h3>
+                        <p>Maîtrise de l'architecture des thèmes (Smarty), modifications de structures à 60%+ et personnalisation de modules e-commerce.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Portfolio (Bento Grid Style) -->
+        <section id="portfolio" class="portfolio section-padding">
+            <div class="container">
+                <h2 class="section-title center">Mes Réalisations</h2>
+                <div class="bento-grid">
+                    <!-- Projet 1 (Large) -->
+                    <a class="project-card bento-wide" href="#" aria-label="Voir le projet Nova Horizon">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" alt="Projet Nova Horizon sur ordinateur" class="project-img" loading="lazy" width="800" height="480">
+                        <div class="project-overlay">
+                            <h3>Nova Horizon</h3>
+                            <p>Plateforme vitrine avec animations immersives complexes.</p>
+                            <div class="project-tags"><span>HTML5</span><span>Sass</span><span>JS</span></div>
+                        </div>
+                    </a>
+                    <!-- Projet 2 -->
+                    <a class="project-card" href="#" aria-label="Voir le projet Saasify Page">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Capture d'écran de la landing page Saasify" class="project-img" loading="lazy" width="600" height="480">
+                        <div class="project-overlay">
+                            <h3>Saasify Page</h3>
+                            <p>Landing page axée conversion.</p>
+                            <div class="project-tags"><span>CSS Grid</span><span>BEM</span></div>
+                        </div>
+                    </a>
+                    <!-- Projet 3 -->
+                    <a class="project-card" href="#" aria-label="Voir le projet E-Shop Premium">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80" alt="Interface d'un panier e-commerce sur mobile" class="project-img" loading="lazy" width="600" height="480">
+                        <div class="project-overlay">
+                            <h3>E-Shop Premium</h3>
+                            <p>Boutique e-commerce optimisée UI/UX : tunnel d'achat fluide et fiches produits sur mesure.</p>
+                            <div class="project-tags">
+                                <span>WooCommerce</span>
+                                <span>PrestaShop</span>
+                                <span>Sass</span>
+                                <span>UX/UI</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Formulaire de Contact -->
+        <section id="contact" class="contact section-padding">
+            <div class="container contact-grid">
+                <div>
+                    <h2 class="section-title">Lançons votre projet</h2>
+                    <p class="text-muted">Vous avez une maquette Figma prête à prendre vie ? Envoyez-moi un message pour en discuter.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/votre-profil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/votre-compte" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder=" " autocomplete="name">
+                        <label for="name">Votre nom</label>
+                        <span class="form-error" id="name-error" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" " autocomplete="email">
+                        <label for="email">Votre adresse email</label>
+                        <span class="form-error" id="email-error" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message">Votre besoin...</label>
+                        <span class="form-error" id="message-error" role="alert"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer le message <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Dina Bee. Réalisé avec rigueur front-end.</p>
+            <button id="back-to-top" class="back-to-top" aria-label="Retour en haut de page" type="button">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
