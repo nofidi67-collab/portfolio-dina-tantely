@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dina Bee | Intégrateur Web Freelance</title>
     <meta name="description" content="Portfolio de Dina, intégrateur web freelance. Code pixel-perfect, design premium, sites accessibles en HTML/CSS/JS, WordPress, WooCommerce et PrestaShop.">
+    <meta name="author" content="RAKOTOMAMONJY Dina Tantely">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0b0e14">
     <link rel="canonical" href="https://votre-domaine.fr/">
 
@@ -13,21 +15,47 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Dina Bee | Intégrateur Web Freelance">
     <meta property="og:description" content="Code pixel-perfect, design premium et accessible. Découvrez mes réalisations.">
-    <meta property="og:image" content="images/og-cover.jpg">
+    <meta property="og:image" content="https://votre-domaine.fr/images/og-cover.jpg">
+    <meta property="og:url" content="https://votre-domaine.fr/">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dina Bee | Intégrateur Web Freelance">
+    <meta name="twitter:description" content="Code pixel-perfect, design premium et accessible. Découvrez mes réalisations.">
+    <meta name="twitter:image" content="https://votre-domaine.fr/images/og-cover.jpg">
 
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="images/favicon-180.png">
 
-    <!-- Google Fonts: Space Grotesk (Titres) & Inter (Texte) -->
+    <!-- Préconnexions -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Préchargement de l'image héro (LCP) -->
+    <link rel="preload" as="image" href="images/image-de-dina.jpg" fetchpriority="high">
+
+    <!-- Google Fonts: Space Grotesk (Titres) & Inter (Texte) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- FontAwesome pour les icônes tech -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Données structurées (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "RAKOTOMAMONJY Dina Tantely",
+      "jobTitle": "Intégrateur Web Freelance",
+      "url": "https://votre-domaine.fr/",
+      "sameAs": [
+        "https://linkedin.com/in/votre-profil",
+        "https://github.com/votre-compte"
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -49,7 +77,7 @@
                 <span class="logo-text">Dina<br><span class="logo-accent">Bee</span></span>
             </a>
 
-            <nav class="main-nav" id="main-nav">
+            <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
                 <ul class="nav-list">
                     <li><a href="#about" class="nav-link">À propos</a></li>
                     <li><a href="#skills" class="nav-link">Compétences</a></li>
@@ -80,14 +108,14 @@
                     <p class="hero-description">Intégrateur Web spécialisé dans la création d'interfaces fluides, ultra-rapides, sémantiques, accessibles et fonctionnelles.</p>
                     <div class="hero-actions">
                         <a href="#portfolio" class="btn btn-primary">Voir mes projets <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        <a href="https://drive.google.com/uc?export=download&id=151rOmtHqCSqEM3LnZqGqjQHDhJ8L-BMl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <a href="assets/cv-dina-rakotomamonjy.pdf" download class="btn btn-secondary">
                             <i class="fas fa-download" aria-hidden="true"></i> Mon CV
                         </a>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="avatar-blob">
-                        <img src="images/image-de-dina.jpg" alt="Portrait de Dina R. - Intégrateur Web" width="420" height="420" loading="eager">
+                        <img src="images/image-de-dina.jpg" alt="Portrait de Dina R. - Intégrateur Web" width="420" height="420" loading="eager" fetchpriority="high">
                     </div>
                 </div>
             </div>
@@ -165,7 +193,7 @@
                 <div class="bento-grid">
                     <!-- Projet 1 (Large) -->
                     <a class="project-card bento-wide" href="#" aria-label="Voir le projet Nova Horizon">
-                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" alt="Projet Nova Horizon sur ordinateur" class="project-img" loading="lazy" width="800" height="480">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" alt="Projet Nova Horizon sur ordinateur" class="project-img" loading="lazy" decoding="async" width="800" height="480">
                         <div class="project-overlay">
                             <h3>Nova Horizon</h3>
                             <p>Plateforme vitrine avec animations immersives complexes.</p>
@@ -174,7 +202,7 @@
                     </a>
                     <!-- Projet 2 -->
                     <a class="project-card" href="#" aria-label="Voir le projet Saasify Page">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Capture d'écran de la landing page Saasify" class="project-img" loading="lazy" width="600" height="480">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Capture d'écran de la landing page Saasify" class="project-img" loading="lazy" decoding="async" width="600" height="480">
                         <div class="project-overlay">
                             <h3>Saasify Page</h3>
                             <p>Landing page axée conversion.</p>
@@ -183,7 +211,7 @@
                     </a>
                     <!-- Projet 3 -->
                     <a class="project-card" href="#" aria-label="Voir le projet E-Shop Premium">
-                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80" alt="Interface d'un panier e-commerce sur mobile" class="project-img" loading="lazy" width="600" height="480">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80" alt="Interface d'un panier e-commerce sur mobile" class="project-img" loading="lazy" decoding="async" width="600" height="480">
                         <div class="project-overlay">
                             <h3>E-Shop Premium</h3>
                             <p>Boutique e-commerce optimisée UI/UX : tunnel d'achat fluide et fiches produits sur mesure.</p>
@@ -227,7 +255,7 @@
                         <span class="form-error" id="message-error" role="alert"></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Envoyer le message <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
-                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                    <p class="form-status" id="form-status" role="status"></p>
                 </form>
             </div>
         </section>
