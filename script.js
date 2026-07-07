@@ -1,135 +1,153 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.documentElement;
+(() => {
+    'use strict';
 
-  /* ---------- 1. Theme toggle ---------- */
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = themeToggle.querySelector('i');
+    /* ----------------------------------------------------------------
+       Menu mobile (burger)
+       ---------------------------------------------------------------- */
+    const menuBtn = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
 
-  const setTheme = (theme) => {
-    root.setAttribute('data-theme', theme);
-    themeToggle.setAttribute('aria-pressed', theme === 'light');
-    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre');
-    themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-  };
+    if (menuBtn && mainNav) {
+        const closeMenu = () => {
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+            mainNav.classList.remove('is-open');
+            document.body.style.overflow = '';
+        };
 
-  themeToggle.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    setTheme(current === 'dark' ? 'light' : 'dark');
-  });
+        const openMenu = () => {
+            menuBtn.setAttribute('aria-expanded', 'true');
+            menuBtn.setAttribute('aria-label', 'Fermer le menu');
+            mainNav.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        };
 
-  /* ---------- 2. Mobile menu ---------- */
-  const menuToggle = document.getElementById('menu-toggle');
-  const mainNav = document.getElementById('main-nav');
+        menuBtn.addEventListener('click', () => {
+            const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMenu() : openMenu();
+        });
 
-  const closeMenu = () => {
-    mainNav.classList.remove('is-open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-  };
+        // Ferme le menu quand on clique un lien
+        mainNav.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', closeMenu);
+        });
 
-  menuToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('is-open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-  });
+        // Ferme le menu avec Échap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
 
-  mainNav.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  /* ---------- 3. Custom cursor (pointer devices only) ---------- */
-  const cursor = document.querySelector('.custom-cursor');
-  const isCoarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-
-  if (cursor && !isCoarsePointer) {
-    window.addEventListener('mousemove', (e) => {
-      cursor.style.opacity = '1';
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    });
-
-    document.querySelectorAll('a, button, input, textarea').forEach((el) => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width = '36px';
-        cursor.style.height = '36px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-      });
-    });
-  }
-
-  /* ---------- 4. Active nav link on scroll ---------- */
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  const setActiveLink = () => {
-    let current = '';
-    sections.forEach((section) => {
-      const top = section.offsetTop - 120;
-      if (window.scrollY >= top) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  };
-
-  window.addEventListener('scroll', setActiveLink, { passive: true });
-  setActiveLink();
-
-  /* ---------- 5. Back to top button ---------- */
-  const backToTop = document.getElementById('back-to-top');
-
-  window.addEventListener('scroll', () => {
-    backToTop.style.opacity = window.scrollY > 400 ? '1' : '0.4';
-  }, { passive: true });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  /* ---------- 6. Contact form validation ---------- */
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-
-  const fieldErrors = {
-    name: 'Merci d\'indiquer votre nom.',
-    email: 'Merci d\'indiquer une adresse email valide.',
-    message: 'Dites-m\'en un peu plus sur votre besoin.',
-  };
-
-  const validateField = (field) => {
-    const errorEl = document.getElementById(`${field.name}-error`);
-    if (!field.checkValidity()) {
-      errorEl.textContent = fieldErrors[field.name] || 'Champ invalide.';
-      return false;
-    }
-    errorEl.textContent = '';
-    return true;
-  };
-
-  form.querySelectorAll('input, textarea').forEach((field) => {
-    field.addEventListener('blur', () => validateField(field));
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fields = [...form.querySelectorAll('input, textarea')];
-    const allValid = fields.map(validateField).every(Boolean);
-
-    if (!allValid) {
-      status.style.color = 'var(--danger)';
-      status.textContent = 'Merci de corriger les champs indiqués.';
-      return;
+        // Ferme le menu si on repasse en desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) closeMenu();
+        });
     }
 
-    // Remplacez ce bloc par un appel réel à votre backend / service d'emailing.
-    status.style.color = 'var(--success)';
-    status.textContent = 'Message envoyé, merci ! Je vous réponds rapidement.';
-    form.reset();
-  });
-});
+    /* ----------------------------------------------------------------
+       Thème clair / sombre
+       ---------------------------------------------------------------- */
+    const themeBtn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const STORAGE_KEY = 'dina-bee-theme';
+
+    const applyTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+        if (themeBtn) {
+            const icon = themeBtn.querySelector('i');
+            const isLight = theme === 'light';
+            themeBtn.setAttribute('aria-pressed', String(isLight));
+            themeBtn.setAttribute('aria-label', isLight ? 'Activer le mode sombre' : 'Activer le mode clair');
+            if (icon) {
+                icon.classList.toggle('fa-sun', !isLight);
+                icon.classList.toggle('fa-moon', isLight);
+            }
+        }
+    };
+
+    // Respecte un choix déjà mémorisé, sinon garde le thème sombre par défaut du site
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) applyTheme(saved);
+    } catch (err) {
+        /* localStorage indisponible (mode privé, etc.) — on garde le thème par défaut */
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            const next = current === 'light' ? 'dark' : 'light';
+            applyTheme(next);
+            try { localStorage.setItem(STORAGE_KEY, next); } catch (err) { /* silencieux */ }
+        });
+    }
+
+    /* ----------------------------------------------------------------
+       Bouton retour en haut
+       ---------------------------------------------------------------- */
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        const toggleVisibility = () => {
+            backToTop.style.opacity = window.scrollY > 500 ? '1' : '0';
+            backToTop.style.pointerEvents = window.scrollY > 500 ? 'auto' : 'none';
+        };
+        toggleVisibility();
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    /* ----------------------------------------------------------------
+       Validation du formulaire de contact
+       ---------------------------------------------------------------- */
+    const form = document.getElementById('contact-form');
+    if (form) {
+        const status = document.getElementById('form-status');
+
+        const fields = [
+            { input: document.getElementById('name'), error: document.getElementById('name-error'), message: 'Merci de renseigner votre nom.' },
+            {
+                input: document.getElementById('email'),
+                error: document.getElementById('email-error'),
+                message: 'Merci de renseigner une adresse email valide.',
+                validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+            },
+            { input: document.getElementById('message'), error: document.getElementById('message-error'), message: 'Merci de décrire votre besoin.' },
+        ];
+
+        const validateField = ({ input, error, message, validate }) => {
+            if (!input) return true;
+            const value = input.value.trim();
+            const isValid = value.length > 0 && (validate ? validate(value) : true);
+            if (error) error.textContent = isValid ? '' : message;
+            input.setAttribute('aria-invalid', String(!isValid));
+            return isValid;
+        };
+
+        fields.forEach((field) => {
+            if (!field.input) return;
+            field.input.addEventListener('blur', () => validateField(field));
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const allValid = fields.map(validateField).every(Boolean);
+
+            if (!allValid) {
+                if (status) {
+                    status.textContent = 'Merci de corriger les champs indiqués.';
+                    status.style.color = 'var(--danger)';
+                }
+                return;
+            }
+
+            // Emplacement pour brancher un vrai envoi (fetch vers une API / service d'emailing)
+            if (status) {
+                status.textContent = 'Message envoyé — merci, je vous réponds rapidement !';
+                status.style.color = 'var(--cyan)';
+            }
+            form.reset();
+        });
+    }
+})();
